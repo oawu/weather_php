@@ -116,7 +116,13 @@ class Github extends Api_controller {
   public function get_town () {
     $key = trim ($this->input_post ('key'));
 
-    if (!($town = render_cell ('github_cell', 'get_town', $key, $this)))
+    if (!($key && ($town = Town::find ('one', array ('conditions' => is_numeric ($key) ? array ('id = ?', $key) : array ('name LIKE CONCAT("%", ? ,"%")', $key))))))
+      return $this->output_json (array ('status' => false));
+
+    $town->pv = $town->pv + 1;
+    $town->save ();
+
+    if (!($town = render_cell ('github_cell', 'get_town', $town, $this)))
       return $this->output_json (array ('status' => false));
 
     return $this->output_json (array ('status' => true, 'town' => $town));

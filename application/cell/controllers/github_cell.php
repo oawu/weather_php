@@ -29,18 +29,11 @@ class Github_cell extends Cell_Controller {
     }, $towns);
   }
 
-  /* render_cell ('github_cell', 'get_town', $key, $this); */
-  public function _cache_get_town ($key, $that) {
-    return array ('time' => 60 * 60, 'key' => $key);
+  /* render_cell ('github_cell', 'get_town', $town, $this); */
+  public function _cache_get_town ($town, $that) {
+    return array ('time' => 60 * 60, 'key' => $town->id);
   }
-  public function get_town ($key, $that) {
-
-    if (!$key) return array ();
-
-    $conditions = is_numeric ($key) ? array ('id = ?', $key) : array ('name LIKE CONCAT("%", ? ,"%")', $key);
-    
-    $town = Town::find ('one', array ('conditions' => $conditions));
-
+  public function get_town ($town, $that) {
     if (!($town && $town->update_weather ()))
       return array ();
 

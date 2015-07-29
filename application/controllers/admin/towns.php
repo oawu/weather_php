@@ -289,11 +289,12 @@ class Towns extends Admin_controller {
         'town_category_id' => $town_category->id,
         'name' => $name,
         'postal_code' => $postal_code,
+        'cwb_town_id' => '',
         'latitude' => $latitude,
         'longitude' => $longitude,
         'zoom' => $zoom,
         'pic' => '',
-        'cwb_town_id' => ''
+        'pv' => 0
       );
 
     if (!verifyCreateOrm ($town = Town::create ($params)))
