@@ -28,6 +28,7 @@
             <td data-title='名稱'><?php echo $town->name;?></td>
             <td data-title='郵遞區號' width='100'><?php echo $town->postal_code;?></td>
             <td data-title='縣市' width='100'><?php echo $town->category->name;?></td>
+            <td data-title='PV' width='70'><?php echo $town->pv;?></td>
             <td data-title='地點' width='70'>
               <img src='<?php echo $town->pic->url ('50x50c');?>' data-id='<?php echo $town->id;?>' class='fancybox_town pic'/>
             </td>
