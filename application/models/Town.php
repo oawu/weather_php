@@ -50,7 +50,10 @@ class Town extends OaModel {
   public function destroy () {
     TownBound::delete_all (array ('conditions' => array ('town_id = ?', $this->id)));
     TownWeather::delete_all (array ('conditions' => array ('town_id = ?', $this->id)));
-    TownView::delete_all (array ('conditions' => array ('town_id = ?', $this->id)));
+
+    foreach (TownView::find ('all', array ('conditions' => array ('town_id = ?', $this->id))) as $view)
+      $view->destroy ();
+
     return $this->pic->cleanAllFiles () && $this->delete ();
   }
 }
