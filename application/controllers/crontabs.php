@@ -11,6 +11,42 @@ class Crontabs extends Site_controller {
     parent::__construct ();
   }
 
+  public function get_all_satellite ($psw) {
+    if (md5 ($psw) != '6d499b8cebdc1464c46cc22a201036bd')
+      return;
+
+    for ($i = 2; $i < 5; $i++) { 
+      for ($j = 0; $j < 24; $j++) { 
+        $time = sprintf ('2015-08-%02d %02d:00:00', $i, $j);
+        $time_key = sprintf ('2015-08-%02d-%02d-00', $i, $j);
+        $url = 'http://www.cwb.gov.tw/V7/observe/satellite/Data/HS1P/HS1P-' . $time_key . '.jpg';
+
+        $params = array (
+            'pic' => '',
+            'pic_time' => $time,
+          );
+        if (verifyCreateOrm ($satellite = Satellite::create ($params)))
+          if (!$satellite->pic->put_url ($url))
+            $satellite->destroy ();
+        echo "sleep " . $time . "\n";
+        sleep(1);
+        $time = sprintf ('2015-08-%02d %02d:30:00', $i, $j);
+        $time_key = sprintf ('2015-08-%02d-%02d-30', $i, $j);
+        $url = 'http://www.cwb.gov.tw/V7/observe/satellite/Data/HS1P/HS1P-' . $time_key . '.jpg';
+
+        $params = array (
+            'pic' => '',
+            'pic_time' => $time,
+          );
+
+        if (verifyCreateOrm ($satellite = Satellite::create ($params)))
+          if (!$satellite->pic->put_url ($url))
+            $satellite->destroy ();
+        echo "sleep " . $time . "\n";
+        sleep(1);
+      }
+    }
+  }
   public function get_satellite ($psw) {
     $log = CrontabLog::start ('每 30 分鐘，雷達雲圖 get_satellite');
 
