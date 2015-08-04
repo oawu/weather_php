@@ -33,13 +33,15 @@ class CrontabLog extends OaModel {
     $obj->start_at = microtime (true);
     return $obj;
   }
-  public function error () {
-    $type->type = '錯誤';
+  public function error ($message = '', $type = '錯誤') {
+    if ($message) $this->message .= '，' . $message;
+    $this->type = $type;
     $this->run_time = microtime (true) - $this->start_at;
     return $this->save ();
   }
-  public function finish () {
-    $this->type = '完成';
+  public function finish ($message = '', $type = '完成') {
+    if ($message) $this->message .= '，' . $message;
+    $this->type = $type;
     $this->run_time = round (microtime (true) - $this->start_at, 4);
     return $this->save ();
   }

@@ -5,7 +5,7 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class Migration_Edit_towns extends CI_Migration {
+class Migration_Edit_town_pvs extends CI_Migration {
   public function up () {
     $this->db->query (
       "ALTER TABLE `towns` ADD `pv` int(11) NOT NULL NOT NULL DEFAULT '0' COMMENT 'PV 流覽率' AFTER `pic`;"
