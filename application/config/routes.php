@@ -46,6 +46,7 @@ Route::root ('main');
 Route::get ('admin', 'admin/main@index');
 Route::get ('admin/towns/(:num)', 'admin/towns@index($1)');
 Route::get ('admin/crontab_logs/(:num)', 'admin/crontab_logs@index($1)');
+Route::get ('admin/satellites/(:num)', 'admin/crontab_logs@index($1)');
 
 // $route['main/index/(:num)/(:num)'] = "main/aaa/$1/$2";
 // Route::get ('main/index/(:num)/(:num)', 'main@aaa($1, $2)');

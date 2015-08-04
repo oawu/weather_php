@@ -17,6 +17,12 @@ class Github extends Api_controller {
       header ('Access-Control-Allow-Origin: http://dev.comdan66.github.io');
   }
 
+  private function _satellite_format ($satellite) {
+    return $satellite ? array (
+        'src' => $satellite->pic->url (),
+        'text' => $satellite->pic_time->format ('Y-m-d H:i:s')
+      ) : array ();
+  }
   private function _weather_bound ($town) {
     return $town && $town->bound ? array ('bound' => array (
                     'northeast' => array (
@@ -89,6 +95,16 @@ class Github extends Api_controller {
               'hour' => $weather->hour . '時',
             );
         }, $weathers));
+  }
+
+  public function get_satellites () {
+    if (!($satellites = Satellite::find ('all', array ('limit' => 48, 'order' => 'id DESC', 'conditions' => array ('pic_time < ?', date ('Y-m-d H:i:s'))))))
+      return $this->output_json (array ('status' => false));
+    
+    if (!($satellites = array_map (array ($this, '_satellite_format'), $satellites)))
+      return $this->output_json (array ('status' => false));
+
+    return $this->output_json (array ('status' => true, 'satellites' => $satellites));
   }
 
   public function get_index_data () {
