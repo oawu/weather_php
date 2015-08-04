@@ -18,6 +18,7 @@ class Admin_frame_cell extends Cell_Controller {
         array ('name' => '縣市列表', 'href' => base_url ('admin', 'towns', 'cate_index'), 'show' => identity ()->get_session ('is_login') ? true : false),
         array ('name' => '鄉鎮列表', 'href' => base_url ('admin', 'towns'), 'show' => identity ()->get_session ('is_login') ? true : false),
         array ('name' => '排程列表', 'href' => base_url ('admin', 'crontab_logs'), 'show' => identity ()->get_session ('is_login') ? true : false),
+        array ('name' => '雷達雲圖', 'href' => base_url ('admin', 'satellites'), 'show' => identity ()->get_session ('is_login') ? true : false),
       );
     $right_links = array (
         array ('name' => '登出', 'href' => base_url ('admin', 'main', 'logout'), 'show' => identity ()->get_session ('is_login') ? true : false),
