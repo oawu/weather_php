@@ -19,7 +19,7 @@ class Github extends Api_controller {
 
   private function _satellite_format ($satellite) {
     return $satellite ? array (
-        'src' => $satellite->pic->url ('800x800c'),
+        'src' => $satellite->pic->url ('400x400c'),
         'text' => $satellite->pic_time->format ('Y-m-d H:i:s')
       ) : array ();
   }
