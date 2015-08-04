@@ -14,7 +14,7 @@ class Crontabs extends Site_controller {
     if (md5 ($psw) != '6d499b8cebdc1464c46cc22a201036bd')
       return;
 
-    for ($i = 2; $i < 5; $i++) { 
+    for ($i = 3; $i < 5; $i++) { 
       for ($j = 0; $j < 24; $j++) { 
         $time = sprintf ('2015-08-%02d %02d:00:00', $i, $j);
         $time_key = sprintf ('2015-08-%02d-%02d-00', $i, $j);
