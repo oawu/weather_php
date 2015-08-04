@@ -98,7 +98,7 @@ class Github extends Api_controller {
   }
 
   public function get_satellites () {
-    if (!($satellites = Satellite::find ('all', array ('limit' => 48, 'order' => 'id DESC', 'conditions' => array ('pic_time < ?', date ('Y-m-d H:i:s'))))))
+    if (!($satellites = Satellite::find ('all', array ('limit' => 24, 'order' => 'id DESC', 'conditions' => array ('pic_time < ?', date ('Y-m-d H:i:s'))))))
       return $this->output_json (array ('status' => false));
     
     if (!($satellites = array_map (array ($this, '_satellite_format'), $satellites)))
