@@ -40,7 +40,7 @@ class TownWeather extends OaModel {
               'at' => $this->special_at->format ('Y-m-d H:m:i')
             ) : array ();
   }
-  public function to_array () {
+  public function to_array ($options = array ()) {
     return array (
           'id' => $this->id,
           'icon' => $this->icon (),
