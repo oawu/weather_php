@@ -19,13 +19,13 @@
 * 參考中央氣象局[手機版本網頁](http://www.cwb.gov.tw/m/)所提供的資料建置。
 * 全網站使用[響應式網站設計(RWD)](http://www.ibest.tw/page01.php)，所以手機也可以正常瀏覽。
 * 網站內容使用 [navigator.geolocation](https://developer.mozilla.org/zh-TW/docs/Using_geolocation) 物件取得前端 GPS 位置。
-* 搭配 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) 實作[追蹤天氣](http://works.ioa.tw/weather/index.html)、[已讀](http://works.ioa.tw/weather/town.html#1)、[記錄上次地圖位置](http://works.ioa.tw/weather/maps.html).. 等功能。
+* 搭配 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) 實作[追蹤天氣](http://works.ioa.tw/weather/)、[已讀](http://works.ioa.tw/weather/town.html#1)、[記錄上次地圖位置](http://works.ioa.tw/weather/maps.html).. 等功能。
 * [搜尋功能](http://works.ioa.tw/weather/search.html)則使用 [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) 將住址搜尋更加準確化。
 * 使用 [Static Maps API](https://developers.google.com/maps/documentation/staticmaps/intro) 以及 [Street View Image API](https://developers.google.com/maps/documentation/streetview/intro) 所提供的服務，擷取地點的地圖、街景截圖。
 * 感謝 [宙思設計](http://zeusdesign.com.tw/) 提供的可愛天氣小圖示。
 * 前端開發工具主要使用 [Gulp](http://gulpjs.com/)、[Compass](http://compass-style.org/) 以及 [jQuery](https://jquery.com/) 語言所建立，主要架構則使用 [OAF2E v1.2](https://github.com/comdan66/oaf2e/)。
 * 後端語言為 [PHP](http://php.net/)，使用的 Framework 為 [OACI version 2.3](https://github.com/comdan66/oaci)。
-* Demo 範例頁面: [http://works.ioa.tw/weather/index.html](http://works.ioa.tw/weather/index.html)
+* Demo 範例頁面: [http://works.ioa.tw/weather/](http://works.ioa.tw/weather/)
 
 
 <br/>
@@ -55,7 +55,7 @@
 
 * E-mail - <comdan66@gmail.com>
 
-* 作品名稱 - [Weather Maps](http://works.ioa.tw/weather/index.html)
+* 作品名稱 - [Weather Maps](http://works.ioa.tw/weather/)
 
 * 最新版本 - 2.1.0
 
