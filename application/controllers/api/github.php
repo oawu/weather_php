@@ -12,9 +12,9 @@ class Github extends Api_controller {
 
     header ('Content-type: text/html');
     if (ENVIRONMENT == 'production')
-      header ('Access-Control-Allow-Origin: http://comdan66.github.io');
+      header ('Access-Control-Allow-Origin: http://works.ioa.tw');
     else
-      header ('Access-Control-Allow-Origin: http://dev.comdan66.github.io');
+      header ('Access-Control-Allow-Origin: http://dev.works.ioa.tw');
   }
 
   private function _satellite_format ($satellite) {

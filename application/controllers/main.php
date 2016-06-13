@@ -13,8 +13,8 @@ class Main extends Site_controller {
 
   public function index () {
     if (ENVIRONMENT == 'production')
-      return redirect ('http://comdan66.github.io/weather/index.html');
+      return redirect ('http://works.ioa.tw/weather/index.html');
     else
-      return redirect ('http://dev.comdan66.github.io/weather/index.html');
+      return redirect ('http://dev.works.ioa.tw/weather/index.html');
   }
 }
